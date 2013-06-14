@@ -1,5 +1,3 @@
-#require_relative 'flashcard.rb'
-
 class Deck
   def initialize(answer_def_hash)
     @deck_of_cards = []
@@ -22,5 +20,28 @@ class Deck
 
   def size
     @deck_of_cards.size
+  end
+
+  def card_attempt_increment(index)
+    @deck_of_cards[index].attempts += 1
+  end
+
+  def repeat?
+    @deck_of_cards.any? { |card| card.attempts >= 2 }
+  end
+
+  def reset
+    @deck_of_cards = @deck_of_cards.select {|card| card.attempts >= 2}
+    reset_attempts!
+  end
+
+  def reset_attempts!
+    @deck_of_cards.each do |card|
+      card.attempts = 0
+    end
+  end
+
+  def multiple_attempts?(index)
+    @deck_of_cards[index].attempts > 0
   end
 end

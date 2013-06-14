@@ -1,9 +1,11 @@
 class Flashcard
   attr_reader :definition
+  attr_accessor :attempts
 
   def initialize(input = {})
     @answer = input.fetch(:answer) { "error"}
     @definition = input.fetch(:definition) {"Something went wrong. Guess 'error'."}
+    @attempts = input.fetch(:attempts)
   end
 
   def is_correct?(input)
