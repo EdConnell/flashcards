@@ -19,4 +19,8 @@ class Deck
   def get_definition(i)
     @deck_of_cards[i].definition
   end
+
+  def size
+    @deck_of_cards.size
+  end
 end
