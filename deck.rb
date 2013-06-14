@@ -1,4 +1,4 @@
-require_relative 'flashcard.rb'
+#require_relative 'flashcard.rb'
 
 class Deck
   def initialize(answer_def_hash)
