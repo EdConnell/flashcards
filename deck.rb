@@ -3,7 +3,7 @@
 class Deck
   def initialize(answer_def_hash)
     @deck_of_cards = []
-    create_flash_cards(answer_def_hash)
+    create_flash_cards(answer_def_hash.shuffle)
   end
 
   def create_flash_cards(answer_def_hash)

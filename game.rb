@@ -14,11 +14,14 @@ class Game
   end
 
   def play
-    @deck.size.times do |index|
+    (@deck.size).times do |index|
       puts @deck.get_definition(index)
+      input = gets.chomp
       until @deck.is_correct?(index, input)
+        puts "Incorrect. Guess again."
         input = gets.chomp
       end
+      puts "Correct."
     end
   end
 
